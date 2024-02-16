@@ -1,0 +1,490 @@
+{
+	"info": {
+		"_postman_id": "7ae34490-875a-4baf-9cac-297762f6bf37",
+		"name": "NOT DELETED  HW-4.2_Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "28376745-7ae34490-875a-4baf-9cac-297762f6bf37"
+	},
+	"item": [
+		{
+			"name": "Registration",
+			"item": [
+				{
+					"name": "Positiv",
+					"item": [
+						{
+							"name": "authenticate",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "cd1abd53-844e-4b75-aaf9-d715bd3486bd",
+										"exec": [
+											"pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Content-Type is present\", function () {",
+											"        pm.response.to.have.header(\"Content-Type\");",
+											"});",
+											"pm.test(\"Status code name has string\", function () {",
+											"        pm.response.to.have.status(\"OK\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "a31a0b12-522f-4ba0-b016-9d82d3b3dae8",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0LmUucy4zLjcudC5lLnMudCIsImV4cCI6MTcwODE4ODE0MSwiYXV0aCI6IlJPTEVfQURNSU4gUk9MRV9VU0VSX1NUVURFTlQgUk9MRV9VU0VSX1RFQUNIRVIiLCJpYXQiOjE3MDgxMDE3NDF9.3dGvbO3oNisBBtjep4I2GbbVdzy0-6MEUf9sYWS5S3BMTDv8d9mKsPdN47dElI64zOaA5z7wvJfJn1M48yLmJQ"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"username\":\"t.e.s.3.7.t.e.s.t\",\"password\":\"t.e.s.3.7.t.e.s.t@\",\"rememberMe\": true}"
+								},
+								"url": {
+									"raw": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/authenticate",
+									"protocol": "https",
+									"host": [
+										"sqlverifier-live-6e21ca0ed768",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"authenticate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Registered user",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7fb0d784-ed4c-480e-9b5d-8f7a0a7283aa",
+										"exec": [
+											"let requestBody = JSON.parse(pm.request.body);",
+											"pm.environment.set(\"UserId\",requestBody.id);",
+											"pm.environment.set(\"UserName\",requestBody.login);",
+											"pm.environment.set(\"FirstName\",requestBody.firstName);",
+											"pm.environment.set(\"LastName\",requestBody.lastName);",
+											"pm.environment.set(\"Email\",requestBody.email);",
+											"pm.environment.set(\"Adjective\",requestBody.authorities)",
+											"",
+											"pm.test(\"Status code is 201\", function () {",
+											"        pm.response.to.have.status(201);",
+											"});",
+											"",
+											"pm.test(\"Successful POST request\", function () {",
+											"        pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
+											"});",
+											"",
+											"pm.test(\"Status code name has string\", function () {",
+											"        pm.response.to.have.status(\"Created\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "b5310f9f-d5e4-4e66-8f30-cf9452a4b859",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0LmUucy4zLjcudC5lLnMudCIsImV4cCI6MTcwODE4ODE0MSwiYXV0aCI6IlJPTEVfQURNSU4gUk9MRV9VU0VSX1NUVURFTlQgUk9MRV9VU0VSX1RFQUNIRVIiLCJpYXQiOjE3MDgxMDE3NDF9.3dGvbO3oNisBBtjep4I2GbbVdzy0-6MEUf9sYWS5S3BMTDv8d9mKsPdN47dElI64zOaA5z7wvJfJn1M48yLmJQ"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 0,\n  \"login\": \"{{$randomUserName}}\",\n  \"firstName\": \"{{$randomFirstName}}\",\n  \"lastName\": \"{{$randomLastName}}\",\n  \"email\": \"{{$randomEmail}}\",\n  \"imageUrl\": \"string\",\n  \"activated\": true,\n  \"langKey\": \"string\",\n  \"createdBy\": \"string\",\n  \"createdDate\": \"2024-02-16T16:42:41.028Z\",\n  \"lastModifiedBy\": \"string\",\n  \"lastModifiedDate\": \"2024-02-16T16:42:41.028Z\",\n  \"authorities\": [\n    \"{{$randomAdjective}}\"\n  ],\n  \"password\": \"{{$randomPassword}}\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/register",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Not possible register user",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "4477b7e2-d582-4772-b34b-4827b04fa661",
+										"exec": [
+											"pm.test(\"Status code is 409\", function () {",
+											"        pm.response.to.have.status(409);",
+											"});",
+											"pm.test(\"Status code name has string\", function () {",
+											"        pm.response.to.have.status(\"Conflict\");",
+											"});",
+											"",
+											"pm.test(\"Response body should be empty\", function () {",
+											"    const responseData = xml2Json(pm.response.text());",
+											"    ",
+											"    pm.expect(responseData).to.be.null;",
+											"});",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "bbacc1c9-f6a4-4216-a738-37c34c73440c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0LmUucy4zLjcudC5lLnMudCIsImV4cCI6MTcwODE4ODE0MSwiYXV0aCI6IlJPTEVfQURNSU4gUk9MRV9VU0VSX1NUVURFTlQgUk9MRV9VU0VSX1RFQUNIRVIiLCJpYXQiOjE3MDgxMDE3NDF9.3dGvbO3oNisBBtjep4I2GbbVdzy0-6MEUf9sYWS5S3BMTDv8d9mKsPdN47dElI64zOaA5z7wvJfJn1M48yLmJQ"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 0,\n  \"login\": \"{{UserName}}\",\n  \"firstName\": \"{{firstName}}\",\n  \"lastName\": \"{{LastName}}\",\n  \"email\": \"{{Email}}\",\n  \"imageUrl\": \"string\",\n  \"activated\": true,\n  \"langKey\": \"string\",\n  \"createdBy\": \"string\",\n  \"createdDate\": \"2024-02-16T16:42:41.028Z\",\n  \"lastModifiedBy\": \"string\",\n  \"lastModifiedDate\": \"2024-02-16T16:42:41.028Z\",\n  \"authorities\": [\n    \"{{Adjective}}\"\n  ],\n  \"password\": \"{{Password}}\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/register",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete user",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "178b42a4-2c94-43cf-ae0f-4f6f49de5d72",
+										"exec": [
+											"pm.test(\"Response status code is 204\", function () {",
+											"    pm.expect(pm.response.code).to.equal(204);",
+											"});",
+											"",
+											"pm.test(\"Validate user is deleted from the system\", function () {",
+											"    const responseData = xml2Json(pm.response.text());",
+											"    ",
+											"    pm.expect(responseData).to.be.null;",
+											"});",
+											"",
+											"",
+											"pm.test(\"Verify response does not contain sensitive information\", function () {",
+											"    const responseData = xml2Json(pm.response.text());",
+											"    ",
+											"    pm.expect(responseData).to.be.null;",
+											"});",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "5d131c67-8e3f-4dbc-b66d-924db9ffc54e",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0LmUucy4zLjcudC5lLnMudCIsImV4cCI6MTcwODE4ODE0MSwiYXV0aCI6IlJPTEVfQURNSU4gUk9MRV9VU0VSX1NUVURFTlQgUk9MRV9VU0VSX1RFQUNIRVIiLCJpYXQiOjE3MDgxMDE3NDF9.3dGvbO3oNisBBtjep4I2GbbVdzy0-6MEUf9sYWS5S3BMTDv8d9mKsPdN47dElI64zOaA5z7wvJfJn1M48yLmJQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/admin/users/{{UserName}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"users",
+										"{{UserName}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find user after delete",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "223821ea-4259-42f5-9d9b-074ab04f232e",
+										"exec": [
+											"",
+											"pm.test(\"Response status code is 404\", function () {",
+											"  pm.expect(pm.response.code).to.equal(404);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Content-Type is application/problem+json\", function () {",
+											"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/problem+json\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"Response contains the required fields\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData).to.be.an('object');",
+											"    pm.expect(responseData).to.include.all.keys('type', 'title', 'status', 'detail', 'instance', 'message', 'path');",
+											"});",
+											"",
+											"",
+											"",
+											"",
+											"",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "023cd2fb-91c4-4d8e-9ddf-a3d3852db678",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0LmUucy4zLjcudC5lLnMudCIsImV4cCI6MTcwODE4ODE0MSwiYXV0aCI6IlJPTEVfQURNSU4gUk9MRV9VU0VSX1NUVURFTlQgUk9MRV9VU0VSX1RFQUNIRVIiLCJpYXQiOjE3MDgxMDE3NDF9.3dGvbO3oNisBBtjep4I2GbbVdzy0-6MEUf9sYWS5S3BMTDv8d9mKsPdN47dElI64zOaA5z7wvJfJn1M48yLmJQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/admin/users/{{UserName}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"admin",
+										"users",
+										"{{UserName}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Admin create user-account",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "cc6a93f0-01ba-4dcc-9f8a-ebfbebbca5f1",
+										"exec": [
+											"",
+											"pm.test(\"Response status code is 201\", function () {",
+											"  pm.expect(pm.response.code).to.equal(201);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Email is in a valid format\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData.email).to.match(/^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$/);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Content-Type header is set to application/json\", function () {",
+											"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+											"});",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "67ab2a7b-2c73-4e74-8b3b-5688dee43786",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0LmUucy4zLjcudC5lLnMudCIsImV4cCI6MTcwODE4ODE0MSwiYXV0aCI6IlJPTEVfQURNSU4gUk9MRV9VU0VSX1NUVURFTlQgUk9MRV9VU0VSX1RFQUNIRVIiLCJpYXQiOjE3MDgxMDE3NDF9.3dGvbO3oNisBBtjep4I2GbbVdzy0-6MEUf9sYWS5S3BMTDv8d9mKsPdN47dElI64zOaA5z7wvJfJn1M48yLmJQ"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"login\": \"{{$randomUserName}}\",\n  \"firstName\": \"{{$randomFirstName}}\",\n  \"lastName\": \"{{$randomLastName}}\",\n  \"email\": \"{{$randomEmail}}\",\n  \"imageUrl\": \"string\",\n  \"activated\": true,\n  \"langKey\": \"string\",\n  \"createdBy\": \"string\",\n  \"createdDate\": \"2024-02-16T16:49:39.882Z\",\n  \"lastModifiedBy\": \"string\",\n  \"lastModifiedDate\": \"2024-02-16T16:49:39.882Z\",\n  \"authorities\": [\n    \"{{$randomAdjective}}\"\n  ]\n}\n"
+								},
+								"url": {
+									"raw": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/admin/users",
+									"protocol": "https",
+									"host": [
+										"sqlverifier-live-6e21ca0ed768",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"admin",
+										"users"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "4f8ea2b5-7e56-47a7-a1a8-748efed28c0f"
+				},
+				{
+					"name": "Negativ",
+					"item": [
+						{
+							"name": "Register user with incorrect date",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7429a66e-dfac-4c8b-a0f3-0bc091714907",
+										"exec": [
+											"pm.test(\"Response status code is 400\", function () {",
+											"  pm.response.to.have.status(400);",
+											"});",
+											"",
+											"pm.test(\"Status code name has string\", function () {",
+											"        pm.response.to.have.status(\"Bad Request\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"Response Content-Type is application/problem+json\", function () {",
+											"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/problem+json\");",
+											"});",
+											"",
+											"",
+											"",
+											"",
+											"",
+											"",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "1c0f4f01-aafc-4ef9-a0d3-8a4199055127",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0LmUucy4zLjcudC5lLnMudCIsImV4cCI6MTcwODE4ODE0MSwiYXV0aCI6IlJPTEVfQURNSU4gUk9MRV9VU0VSX1NUVURFTlQgUk9MRV9VU0VSX1RFQUNIRVIiLCJpYXQiOjE3MDgxMDE3NDF9.3dGvbO3oNisBBtjep4I2GbbVdzy0-6MEUf9sYWS5S3BMTDv8d9mKsPdN47dElI64zOaA5z7wvJfJn1M48yLmJQ"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"id\": 0,\n  \"login\": \"{{CustomerLogin}}\",\n  \"firstName\": \"string\",\n  \"lastName\": \"string\",\n  \"email\": \"{{CustomerEmail}}\",\n  \"imageUrl\": \"string\",\n  \"activated\": true,\n  \"langKey\": \"string\",\n  \"createdBy\": \"string\",\n  \"createdDate\": \"2024-02-16T16:42:41.028Z\",\n  \"lastModifiedBy\": \"string\",\n  \"lastModifiedDate\": \"2024-02-16T16:42:41.028Z\",\n  \"authorities\": [\n    \"string\"\n  ],\n  \"password\": \"string\"\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/register",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"register"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "fe92cd90-70c3-4cde-b9e0-3c313a4e1669"
+				}
+			],
+			"id": "64f6cd13-f550-4c69-84f2-bfc7658f5ccf"
+		}
+	]
+}
