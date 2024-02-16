@@ -1,0 +1,280 @@
+{
+	"id": "546e4b8c-ea51-4e1a-97f0-973e2e29ba59",
+	"name": "HW-4.2_Api",
+	"timestamp": "2024-02-16T20:28:06.309Z",
+	"collection_id": "28376745-679f1304-1c4c-4db3-aa55-0472a749edc4",
+	"folder_id": "28376745-f560a70e-e7d2-49e5-9274-826201378605",
+	"environment_id": "28376745-94e63e1e-c80c-497d-ae92-10e5b62654be",
+	"totalPass": 16,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2024-02-16T20:27:59.294Z",
+	"totalFail": 2,
+	"results": [
+		{
+			"id": "7781fbaf-c5ba-4573-8e6f-ab1ae312fd01",
+			"name": "authenticate",
+			"url": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/authenticate",
+			"time": 3858,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Content-Type is present": true,
+				"Status code name has string": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name has string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				3858
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type is present": true,
+					"Status code name has string": true
+				}
+			]
+		},
+		{
+			"id": "7354d76a-8bfd-48a5-baea-e1bf96a4768d",
+			"name": "Registered user",
+			"url": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/register",
+			"time": 836,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 201": true,
+				"Successful POST request": true,
+				"Status code name has string": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name has string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				836
+			],
+			"allTests": [
+				{
+					"Status code is 201": true,
+					"Successful POST request": true,
+					"Status code name has string": true
+				}
+			]
+		},
+		{
+			"id": "bfdfee3f-338b-4a9b-a168-7fce494ccff7",
+			"name": "Not possible register user",
+			"url": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/register",
+			"time": 515,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 409": false,
+				"Status code name has string": false,
+				"Response body should be empty": true
+			},
+			"testPassFailCounts": {
+				"Status code is 409": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Status code name has string": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response body should be empty": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				515
+			],
+			"allTests": [
+				{
+					"Status code is 409": false,
+					"Status code name has string": false,
+					"Response body should be empty": true
+				}
+			]
+		},
+		{
+			"id": "0ec67df8-e38d-47fc-b2df-89ae29a66d6d",
+			"name": "Delete user",
+			"url": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/admin/users/Melvina.Collier",
+			"time": 470,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {
+				"Response status code is 204": true,
+				"Validate user is deleted from the system": true,
+				"Verify response does not contain sensitive information": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 204": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate user is deleted from the system": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify response does not contain sensitive information": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				470
+			],
+			"allTests": [
+				{
+					"Response status code is 204": true,
+					"Validate user is deleted from the system": true,
+					"Verify response does not contain sensitive information": true
+				}
+			]
+		},
+		{
+			"id": "77b7bd9a-4e3f-4914-9f9b-8872c7497434",
+			"name": "Find user after delete",
+			"url": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/admin/users/Melvina.Collier",
+			"time": 471,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Response status code is 404": true,
+				"Content-Type is application/problem+json": true,
+				"Response contains the required fields": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is application/problem+json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response contains the required fields": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				471
+			],
+			"allTests": [
+				{
+					"Response status code is 404": true,
+					"Content-Type is application/problem+json": true,
+					"Response contains the required fields": true
+				}
+			]
+		},
+		{
+			"id": "0b376cf7-1841-4347-82fd-5c7341923f98",
+			"name": "Admin create user-account",
+			"url": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/admin/users",
+			"time": 523,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Response status code is 201": true,
+				"Email is in a valid format": true,
+				"Content-Type header is set to application/json": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Email is in a valid format": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is set to application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				523
+			],
+			"allTests": [
+				{
+					"Response status code is 201": true,
+					"Email is in a valid format": true,
+					"Content-Type header is set to application/json": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 6673,
+	"collection": {
+		"requests": [
+			{
+				"id": "7781fbaf-c5ba-4573-8e6f-ab1ae312fd01",
+				"method": "POST"
+			},
+			{
+				"id": "7354d76a-8bfd-48a5-baea-e1bf96a4768d",
+				"method": "POST"
+			},
+			{
+				"id": "bfdfee3f-338b-4a9b-a168-7fce494ccff7",
+				"method": "POST"
+			},
+			{
+				"id": "0ec67df8-e38d-47fc-b2df-89ae29a66d6d",
+				"method": "DELETE"
+			},
+			{
+				"id": "77b7bd9a-4e3f-4914-9f9b-8872c7497434",
+				"method": "GET"
+			},
+			{
+				"id": "0b376cf7-1841-4347-82fd-5c7341923f98",
+				"method": "POST"
+			}
+		]
+	}
+}
