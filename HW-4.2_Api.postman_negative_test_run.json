@@ -1,0 +1,137 @@
+{
+	"id": "3ec1c66a-f51c-4894-96b2-320d18d4b3d5",
+	"name": "HW-4.2_Api",
+	"timestamp": "2024-02-16T21:03:49.503Z",
+	"collection_id": "28376745-679f1304-1c4c-4db3-aa55-0472a749edc4",
+	"folder_id": "28376745-3df8d378-c844-4ce2-a31e-68559aa21175",
+	"environment_id": "28376745-94e63e1e-c80c-497d-ae92-10e5b62654be",
+	"totalPass": 39,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2024-02-16T21:03:36.935Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "1ca2637a-72c2-47c1-a2d8-d7fff71b487e",
+			"name": "Register user with incorrect date",
+			"url": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/register",
+			"time": 519,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Response status code is 400": true,
+				"Status code name has string": true,
+				"Response Content-Type is application/problem+json": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 400": {
+					"pass": 13,
+					"fail": 0
+				},
+				"Status code name has string": {
+					"pass": 13,
+					"fail": 0
+				},
+				"Response Content-Type is application/problem+json": {
+					"pass": 13,
+					"fail": 0
+				}
+			},
+			"times": [
+				648,
+				549,
+				539,
+				602,
+				469,
+				457,
+				469,
+				5506,
+				785,
+				504,
+				508,
+				511,
+				519
+			],
+			"allTests": [
+				{
+					"Response status code is 400": true,
+					"Status code name has string": true,
+					"Response Content-Type is application/problem+json": true
+				},
+				{
+					"Response status code is 400": true,
+					"Status code name has string": true,
+					"Response Content-Type is application/problem+json": true
+				},
+				{
+					"Response status code is 400": true,
+					"Status code name has string": true,
+					"Response Content-Type is application/problem+json": true
+				},
+				{
+					"Response status code is 400": true,
+					"Status code name has string": true,
+					"Response Content-Type is application/problem+json": true
+				},
+				{
+					"Response status code is 400": true,
+					"Status code name has string": true,
+					"Response Content-Type is application/problem+json": true
+				},
+				{
+					"Response status code is 400": true,
+					"Status code name has string": true,
+					"Response Content-Type is application/problem+json": true
+				},
+				{
+					"Response status code is 400": true,
+					"Status code name has string": true,
+					"Response Content-Type is application/problem+json": true
+				},
+				{
+					"Response status code is 400": true,
+					"Status code name has string": true,
+					"Response Content-Type is application/problem+json": true
+				},
+				{
+					"Response status code is 400": true,
+					"Status code name has string": true,
+					"Response Content-Type is application/problem+json": true
+				},
+				{
+					"Response status code is 400": true,
+					"Status code name has string": true,
+					"Response Content-Type is application/problem+json": true
+				},
+				{
+					"Response status code is 400": true,
+					"Status code name has string": true,
+					"Response Content-Type is application/problem+json": true
+				},
+				{
+					"Response status code is 400": true,
+					"Status code name has string": true,
+					"Response Content-Type is application/problem+json": true
+				},
+				{
+					"Response status code is 400": true,
+					"Status code name has string": true,
+					"Response Content-Type is application/problem+json": true
+				}
+			]
+		}
+	],
+	"count": 13,
+	"totalTime": 12066,
+	"collection": {
+		"requests": [
+			{
+				"id": "1ca2637a-72c2-47c1-a2d8-d7fff71b487e",
+				"method": "POST"
+			}
+		]
+	}
+}
