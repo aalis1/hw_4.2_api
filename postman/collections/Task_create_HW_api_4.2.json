@@ -1,0 +1,992 @@
+{
+	"info": {
+		"_postman_id": "9414afb7-ed94-4d0d-87ef-ef9155bb6776",
+		"name": "Task_create_HW_api_4.2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "28376745-9414afb7-ed94-4d0d-87ef-ef9155bb6776"
+	},
+	"item": [
+		{
+			"name": "Tasks",
+			"item": [
+				{
+					"name": "Positive",
+					"item": [
+						{
+							"name": "Authenticate",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "40421913-0ca5-417b-8cbf-10bea95d6b70",
+										"exec": [
+											"pm.environment.set(\"id_token\", pm.response.json().id_token);",
+											"",
+											"pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Content-Type is present\", function () {",
+											"        pm.response.to.have.header(\"Content-Type\");",
+											"});",
+											"pm.test(\"Status code name has string\", function () {",
+											"        pm.response.to.have.status(\"OK\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "33aed78c-6aa1-4055-b3fd-17229d1aa483",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0LmUucy4zLjcudC5lLnMudCIsImV4cCI6MTcwODE4ODE0MSwiYXV0aCI6IlJPTEVfQURNSU4gUk9MRV9VU0VSX1NUVURFTlQgUk9MRV9VU0VSX1RFQUNIRVIiLCJpYXQiOjE3MDgxMDE3NDF9.3dGvbO3oNisBBtjep4I2GbbVdzy0-6MEUf9sYWS5S3BMTDv8d9mKsPdN47dElI64zOaA5z7wvJfJn1M48yLmJQ"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"username\":\"t.e.s.3.7.t.e.s.t\",\"password\":\"t.e.s.3.7.t.e.s.t@\",\"rememberMe\": true}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/authenticate",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"authenticate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create user-task",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "9b76ce02-62ee-40b2-8977-d9d503c674cb",
+										"exec": [
+											"console.log(pm.response.json().task.id)",
+											"pm.environment.set(\"task.id\", pm.response.json().task.id);",
+											"",
+											"pm.test(\"Status code is 201\", function () {",
+											"        pm.response.to.have.status(201);",
+											"});",
+											"pm.test(\"Content-Type is present\", function () {",
+											"        pm.response.to.have.header(\"Content-Type\");",
+											"});",
+											"pm.test(\"Successful POST request\", function () {",
+											"        pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "1b6720e1-72d9-4d7b-a1a1-64b984dc325a",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0LmUucy4zLjcudC5lLnMudCIsImV4cCI6MTcwODE4ODE0MSwiYXV0aCI6IlJPTEVfQURNSU4gUk9MRV9VU0VSX1NUVURFTlQgUk9MRV9VU0VSX1RFQUNIRVIiLCJpYXQiOjE3MDgxMDE3NDF9.3dGvbO3oNisBBtjep4I2GbbVdzy0-6MEUf9sYWS5S3BMTDv8d9mKsPdN47dElI64zOaA5z7wvJfJn1M48yLmJQ"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \n    \"isSolved\": false,\n    \"user\": {\n        \"createdBy\": null,\n        \"createdDate\": \"2024-02-15T16:08:28.925608132Z\",\n        \"lastModifiedBy\": null,\n        \"lastModifiedDate\": \"2024-02-15T16:08:28.925608233Z\",\n        \"id\": 1051,\n        \"login\": \"milana\",\n        \"firstName\": null,\n        \"lastName\": null,\n        \"email\": \"milana@gmail.com\",\n        \"activated\": false,\n        \"langKey\": null,\n        \"imageUrl\": null,\n        \"resetDate\": null\n    },\n    \"task\": {\n        \"id\": 55251,\n        \"text\": \"wryer \",\n        \"answer\": \"fgjj\",\n        \"title\": \"hgkfk\"\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/user-tasks",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user-tasks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Сreate user-task already created",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e747a5d0-3682-4d20-9adb-23b06799511f",
+										"exec": [
+											"pm.test(\"Status code is 409\", function () {",
+											"        pm.response.to.have.status(409);",
+											"});",
+											"pm.test(\"Content-Type is present\", function () {",
+											"        pm.response.to.have.header(\"Content-Type\");",
+											"});",
+											"pm.test(\"Unsuccessful POST request\", function () {",
+											"        pm.expect(pm.response.code).to.be.oneOf([409]);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "56324330-39f0-4894-bd31-f5762a32fd5f",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0LmUucy4zLjcudC5lLnMudCIsImV4cCI6MTcwODE4ODE0MSwiYXV0aCI6IlJPTEVfQURNSU4gUk9MRV9VU0VSX1NUVURFTlQgUk9MRV9VU0VSX1RFQUNIRVIiLCJpYXQiOjE3MDgxMDE3NDF9.3dGvbO3oNisBBtjep4I2GbbVdzy0-6MEUf9sYWS5S3BMTDv8d9mKsPdN47dElI64zOaA5z7wvJfJn1M48yLmJQ"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \n    \"isSolved\": false,\n    \"user\": {\n        \"createdBy\": null,\n        \"createdDate\": \"2024-02-15T16:08:28.925608132Z\",\n        \"lastModifiedBy\": null,\n        \"lastModifiedDate\": \"2024-02-15T16:08:28.925608233Z\",\n        \"id\": 1051,\n        \"login\": \"milana\",\n        \"firstName\": null,\n        \"lastName\": null,\n        \"email\": \"milana@gmail.com\",\n        \"activated\": false,\n        \"langKey\": null,\n        \"imageUrl\": null,\n        \"resetDate\": null\n    },\n    \"task\": {\n        \"id\": 55251,\n        \"text\": \"wryer \",\n        \"answer\": \"fgjj\",\n        \"title\": \"hgkfk\"\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/user-tasks",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user-tasks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete user task",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "f126ca26-6fc2-4da1-a27a-57ab483b7de9",
+										"exec": [
+											"pm.test('Status code is 204', function () {",
+											"    pm.response.to.have.status(204);",
+											"})",
+											"",
+											"pm.test(\"Delete user task\", function () {",
+											"    pm.expect(pm.response.text()).to.eql(\"\");",
+											"});",
+											"",
+											"pm.test('Status code name has string', function () {",
+											"    pm.response.to.have.status('No Content');",
+											"})",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "c4752d15-1ecc-463d-a221-7fb1d3cb18af",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0LmUucy4zLjcudC5lLnMudCIsImV4cCI6MTcwODE4ODE0MSwiYXV0aCI6IlJPTEVfQURNSU4gUk9MRV9VU0VSX1NUVURFTlQgUk9MRV9VU0VSX1RFQUNIRVIiLCJpYXQiOjE3MDgxMDE3NDF9.3dGvbO3oNisBBtjep4I2GbbVdzy0-6MEUf9sYWS5S3BMTDv8d9mKsPdN47dElI64zOaA5z7wvJfJn1M48yLmJQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/user-tasks/{{task.id}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user-tasks",
+										"{{task.id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete task already deleted",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7523eebf-fdd3-4479-99c6-8474dd1e6a14",
+										"exec": [
+											"",
+											"pm.test(\"Response status code is 409\", function () {",
+											"    pm.expect(pm.response.code).to.equal(409);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Response status code is 204\", function () {",
+											"    pm.response.to.have.status(204);",
+											"});",
+											"",
+											"pm.test(\"Validate that the task with the specified ID has been successfully deleted\", function () {",
+											"    pm.expect(pm.response.code).to.equal(204);",
+											"    pm.expect(pm.response.text()).to.be.empty;",
+											"});",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "03b25681-fad8-4193-9ec2-aa9f3d967577",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0LmUucy4zLjcudC5lLnMudCIsImV4cCI6MTcwODE4ODE0MSwiYXV0aCI6IlJPTEVfQURNSU4gUk9MRV9VU0VSX1NUVURFTlQgUk9MRV9VU0VSX1RFQUNIRVIiLCJpYXQiOjE3MDgxMDE3NDF9.3dGvbO3oNisBBtjep4I2GbbVdzy0-6MEUf9sYWS5S3BMTDv8d9mKsPdN47dElI64zOaA5z7wvJfJn1M48yLmJQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/user-tasks/{{task.id}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user-tasks",
+										"{{task.id}}"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create task",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "e1a1a293-0825-424f-9cf3-021bb70bda52",
+										"exec": [
+											"pm.test(\"Status code is 201\", function () {",
+											"        pm.response.to.have.status(201);",
+											"});",
+											"pm.test(\"Status code name has string\", function () {",
+											"        pm.response.to.have.status(\"Created\");",
+											"});",
+											"pm.test(\"Content-Type is present\", function () {",
+											"        pm.response.to.have.header(\"Content-Type\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "eec4c6ad-0268-4ce2-ac11-37be2b3bc4da",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0LmUucy4zLjcudC5lLnMudCIsImV4cCI6MTcwODE4ODE0MSwiYXV0aCI6IlJPTEVfQURNSU4gUk9MRV9VU0VSX1NUVURFTlQgUk9MRV9VU0VSX1RFQUNIRVIiLCJpYXQiOjE3MDgxMDE3NDF9.3dGvbO3oNisBBtjep4I2GbbVdzy0-6MEUf9sYWS5S3BMTDv8d9mKsPdN47dElI64zOaA5z7wvJfJn1M48yLmJQ"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"text\": \"edit\",\n    \"answer\": \"Task \",\n    \"title\": \" Create\"\n}\n"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/tasks",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"tasks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete task",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7622dea0-17ac-45a6-a4bc-e6a854dd88c2",
+										"exec": [
+											"",
+											"pm.test(\"Response status code is 204\", function () {",
+											"    pm.response.to.have.status(204);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Response body is null\", function () {",
+											"    const responseData = xml2Json(pm.response.text());",
+											"    pm.expect(responseData).to.be.null;",
+											"});",
+											"",
+											"",
+											"pm.test(\"Verify that the user task with ID 55401 is deleted from the system\", function () {",
+											"    pm.expect(pm.response.code).to.equal(204);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Validate that the response body is empty\", function () {",
+											"    pm.expect(pm.response.text()).to.be.empty;",
+											"});",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "7832f0dd-099e-4823-abcd-f7d27f4354a9",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0LmUucy4zLjcudC5lLnMudCIsImV4cCI6MTcwODE4ODE0MSwiYXV0aCI6IlJPTEVfQURNSU4gUk9MRV9VU0VSX1NUVURFTlQgUk9MRV9VU0VSX1RFQUNIRVIiLCJpYXQiOjE3MDgxMDE3NDF9.3dGvbO3oNisBBtjep4I2GbbVdzy0-6MEUf9sYWS5S3BMTDv8d9mKsPdN47dElI64zOaA5z7wvJfJn1M48yLmJQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/tasks/56959",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"tasks",
+										"56959"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "bd32ac24-b5de-4a15-a541-0918f186b596"
+				},
+				{
+					"name": "Negative",
+					"item": [
+						{
+							"name": "Emojis instead of letters in user-task",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "9e0fc1b1-1d1a-4383-a605-5030a9800f1b",
+										"exec": [
+											"",
+											"pm.test(\"Response status code is 400\", function () {",
+											"  pm.expect(pm.response.code).to.equal(400);",
+											"});",
+											"",
+											"pm.test(\"Successful POST request\", function () {",
+											"        pm.expect(pm.response.code).to.be.oneOf([201, 202]);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Response has the required fields\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData).to.be.an('object');",
+											"    pm.expect(responseData).to.have.property('id');",
+											"    pm.expect(responseData).to.have.property('isSolved');",
+											"    pm.expect(responseData).to.have.property('user');",
+											"    pm.expect(responseData).to.have.property('task');",
+											"});",
+											"",
+											"",
+											"",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "4ea4d3ff-05af-420c-8455-ca80f35709ad",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0LmUucy4zLjcudC5lLnMudCIsImV4cCI6MTcwODE4ODE0MSwiYXV0aCI6IlJPTEVfQURNSU4gUk9MRV9VU0VSX1NUVURFTlQgUk9MRV9VU0VSX1RFQUNIRVIiLCJpYXQiOjE3MDgxMDE3NDF9.3dGvbO3oNisBBtjep4I2GbbVdzy0-6MEUf9sYWS5S3BMTDv8d9mKsPdN47dElI64zOaA5z7wvJfJn1M48yLmJQ"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \n    \"isSolved\": false,\n    \"user\": {\n        \"createdBy\": null,\n        \"createdDate\": \"2024-02-15T16:08:28.925608132Z\",\n        \"lastModifiedBy\": null,\n        \"lastModifiedDate\": \"2024-02-15T16:08:28.925608233Z\",\n        \"id\": 1051,\n        \"login\": \"milana\",\n        \"firstName\": null,\n        \"lastName\": null,\n        \"email\": \"milana@gmail.com\",\n        \"activated\": false,\n        \"langKey\": null,\n        \"imageUrl\": null,\n        \"resetDate\": null\n    },\n    \"task\": {\n        \"id\": 55251,\n        \"text\": \"🦋🦋\",\n        \"answer\": \"☘️🍄☘️\",\n        \"title\": \"🦑🦑\"\n    }\n}"
+								},
+								"url": {
+									"raw": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/user-tasks",
+									"protocol": "https",
+									"host": [
+										"sqlverifier-live-6e21ca0ed768",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"user-tasks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Special characters instead of task text",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "8f182400-97d3-4ed1-9c3d-77f51d2a0d41",
+										"exec": [
+											"",
+											"pm.test(\"Response status code is 400\", function () {",
+											"    pm.response.to.have.status(400);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Response has the required fields\", function () {",
+											"    const responseData = pm.response.json();",
+											"    ",
+											"    pm.expect(responseData).to.be.an('object');",
+											"    pm.expect(responseData).to.have.property('id');",
+											"    pm.expect(responseData).to.have.property('text');",
+											"    pm.expect(responseData).to.have.property('answer');",
+											"    pm.expect(responseData).to.have.property('title');",
+											"});",
+											"",
+											"",
+											"pm.test(\"Content-Type header is application/json\", function () {",
+											"    pm.expect(pm.response.headers.get('Content-Type')).to.include('application/json');",
+											"});",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "0f41290a-d299-42c0-9217-6c927e3346f1",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0LmUucy4zLjcudC5lLnMudCIsImV4cCI6MTcwODE4ODE0MSwiYXV0aCI6IlJPTEVfQURNSU4gUk9MRV9VU0VSX1NUVURFTlQgUk9MRV9VU0VSX1RFQUNIRVIiLCJpYXQiOjE3MDgxMDE3NDF9.3dGvbO3oNisBBtjep4I2GbbVdzy0-6MEUf9sYWS5S3BMTDv8d9mKsPdN47dElI64zOaA5z7wvJfJn1M48yLmJQ"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"text\": \"  ^*%^&%^$%\",\n    \"answer\": \"  &^*&^&*%^$$^%   \",\n    \"title\": \"    &^&^%&^$%^\"\n}\n"
+								},
+								"url": {
+									"raw": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/tasks",
+									"protocol": "https",
+									"host": [
+										"sqlverifier-live-6e21ca0ed768",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"tasks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Emojis instead of letters in task",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "443e76cb-3bd6-4dc1-b069-44559fd37750",
+										"exec": [
+											"pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"});",
+											"",
+											"pm.test(\"Status code name has string\", function () {",
+											"        pm.response.to.have.status(\"Bad Request\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"Content-Type is application/json\", function () {",
+											"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+											"});",
+											"",
+											"",
+											"",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "4d236386-bf78-4fb1-8161-892f0e009481",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0LmUucy4zLjcudC5lLnMudCIsImV4cCI6MTcwODE4ODE0MSwiYXV0aCI6IlJPTEVfQURNSU4gUk9MRV9VU0VSX1NUVURFTlQgUk9MRV9VU0VSX1RFQUNIRVIiLCJpYXQiOjE3MDgxMDE3NDF9.3dGvbO3oNisBBtjep4I2GbbVdzy0-6MEUf9sYWS5S3BMTDv8d9mKsPdN47dElI64zOaA5z7wvJfJn1M48yLmJQ"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \n    \"text\": \"🦋🦋🦋🦋🦋🦋 \",\n    \"answer\": \" 🦑🦑🦑🦑🦑🦑\",\n    \"title\": \"☘️☘️☘️☘️🍄🍄🍄🍄☘️☘️☘️☘️\"\n}\n"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/api/tasks",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"api",
+										"tasks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create user-task without user email",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "9fb9f500-c444-4701-bcf8-7d8694c603cd",
+										"exec": [
+											"pm.test(\"Content-Type header is application/json\", function () {",
+											"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"Status code is 400\", function () {",
+											"        pm.response.to.have.status(400);",
+											"});",
+											"",
+											"pm.test(\"Status code name has string\", function () {",
+											"        pm.response.to.have.status(\"Bad Request\");",
+											"});",
+											"",
+											"",
+											"",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "6baba05e-6b07-45a1-8f0b-6b68d285b192",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0LmUucy4zLjcudC5lLnMudCIsImV4cCI6MTcwODE4ODE0MSwiYXV0aCI6IlJPTEVfQURNSU4gUk9MRV9VU0VSX1NUVURFTlQgUk9MRV9VU0VSX1RFQUNIRVIiLCJpYXQiOjE3MDgxMDE3NDF9.3dGvbO3oNisBBtjep4I2GbbVdzy0-6MEUf9sYWS5S3BMTDv8d9mKsPdN47dElI64zOaA5z7wvJfJn1M48yLmJQ"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \n    \"isSolved\": false,\n    \"user\": {\n        \"createdBy\": null,\n        \"createdDate\": \"2024-02-15T16:08:28.925608132Z\",\n        \"lastModifiedBy\": null,\n        \"lastModifiedDate\": \"2024-02-15T16:08:28.925608233Z\",\n        \"id\": 1051,\n        \"login\": \"milana\",\n        \"firstName\": null,\n        \"lastName\": null,\n        \"email\": null,\n        \"activated\": false,\n        \"langKey\": null,\n        \"imageUrl\": null,\n        \"resetDate\": null\n    },\n    \"task\": {\n        \"id\": 55251,\n        \"text\": \"wryer \",\n        \"answer\": \"fgjj\",\n        \"title\": \"hgkfk\"\n    }\n}"
+								},
+								"url": {
+									"raw": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/user-tasks",
+									"protocol": "https",
+									"host": [
+										"sqlverifier-live-6e21ca0ed768",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"user-tasks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Not possible create task with empty fields",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "7276e2b9-a628-4fea-9ed7-6ad1682138f7",
+										"exec": [
+											"",
+											"pm.test(\"Response status code is 400\", function () {",
+											"    pm.expect(pm.response.code).to.equal(400);",
+											"});",
+											"",
+											"pm.test(\"Status code name has string\", function () {",
+											"        pm.response.to.have.status(\"Bad Request\");",
+											"});",
+											"",
+											"",
+											"pm.test(\"Content type is application/json\", function () {",
+											"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.include(\"application/json\");",
+											"});",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "fe76d672-d0b2-481a-9b4f-134a5dd2dcb6",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0LmUucy4zLjcudC5lLnMudCIsImV4cCI6MTcwODE4ODE0MSwiYXV0aCI6IlJPTEVfQURNSU4gUk9MRV9VU0VSX1NUVURFTlQgUk9MRV9VU0VSX1RFQUNIRVIiLCJpYXQiOjE3MDgxMDE3NDF9.3dGvbO3oNisBBtjep4I2GbbVdzy0-6MEUf9sYWS5S3BMTDv8d9mKsPdN47dElI64zOaA5z7wvJfJn1M48yLmJQ"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"text\": \"   \",\n  \"answer\": \"   \",\n  \"title\": \"   \"\n}\n"
+								},
+								"url": {
+									"raw": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/tasks",
+									"protocol": "https",
+									"host": [
+										"sqlverifier-live-6e21ca0ed768",
+										"herokuapp",
+										"com"
+									],
+									"path": [
+										"api",
+										"tasks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Special symbols instead letters in user-task",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ef189a6f-c183-44b8-b812-a73e72963604",
+										"exec": [
+											"",
+											"pm.test(\"Response status code is 400\", function () {",
+											"  pm.expect(pm.response.code).to.equal(400);",
+											"});",
+											"",
+											"",
+											"pm.test(\"Response has the required fields\", function () {",
+											"  const responseData = pm.response.json();",
+											"  ",
+											"  pm.expect(responseData).to.be.an('object');",
+											"  pm.expect(responseData).to.have.property('id');",
+											"  pm.expect(responseData).to.have.property('isSolved');",
+											"  pm.expect(responseData).to.have.property('user');",
+											"  pm.expect(responseData).to.have.property('task');",
+											"});",
+											"",
+											"",
+											"pm.test(\"User object contains expected properties\", function () {",
+											"    const responseData = pm.response.json();",
+											"",
+											"    pm.expect(responseData.user).to.be.an('object');",
+											"    pm.expect(responseData.user).to.include.all.keys('id', 'login', 'email', 'activated');",
+											"});",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "4f0c3a53-1ae5-4cfc-b4cb-877042e44e5b",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0LmUucy4zLjcudC5lLnMudCIsImV4cCI6MTcwODE4ODE0MSwiYXV0aCI6IlJPTEVfQURNSU4gUk9MRV9VU0VSX1NUVURFTlQgUk9MRV9VU0VSX1RFQUNIRVIiLCJpYXQiOjE3MDgxMDE3NDF9.3dGvbO3oNisBBtjep4I2GbbVdzy0-6MEUf9sYWS5S3BMTDv8d9mKsPdN47dElI64zOaA5z7wvJfJn1M48yLmJQ"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \n    \"isSolved\": false,\n    \"user\": {\n        \"createdBy\": null,\n        \"createdDate\": \"2024-02-15T16:08:28.925608132Z\",\n        \"lastModifiedBy\": null,\n        \"lastModifiedDate\": \"2024-02-15T16:08:28.925608233Z\",\n        \"id\": 1051,\n        \"login\": \"milana\",\n        \"firstName\": null,\n        \"lastName\": null,\n        \"email\": \"milana@gmail.com\",\n        \"activated\": false,\n        \"langKey\": null,\n        \"imageUrl\": null,\n        \"resetDate\": null\n    },\n    \"task\": {\n    \"id\": 55652,\n    \"text\": \"  ^*%^&%^$%\",\n    \"answer\": \"  &^*&^&*%^$$^%   \",\n    \"title\": \"    &^&^%&^$%^\"\n}\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/user-tasks",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user-tasks"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "bfa91f01-d38b-40b8-b502-1f1e765dddb6"
+				},
+				{
+					"name": "Automation generate date",
+					"item": [
+						{
+							"name": "Create user-task",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "1144f680-bb0f-429f-ab17-56baa46c6c1e",
+										"exec": [
+											"pm.test(\"Status code is 201\", function () {",
+											"        pm.response.to.have.status(201);",
+											"});",
+											"pm.test(\"Content-Type is present\", function () {",
+											"        pm.response.to.have.header(\"Content-Type\");",
+											"});",
+											"pm.test(\"Successful POST request\", function () {",
+											"        pm.expect(pm.response.code).to.be.oneOf([201]);",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "c05344c3-d60b-4ab2-a43f-5df86e4f8e67",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0LmUucy4zLjcudC5lLnMudCIsImV4cCI6MTcwODE4ODE0MSwiYXV0aCI6IlJPTEVfQURNSU4gUk9MRV9VU0VSX1NUVURFTlQgUk9MRV9VU0VSX1RFQUNIRVIiLCJpYXQiOjE3MDgxMDE3NDF9.3dGvbO3oNisBBtjep4I2GbbVdzy0-6MEUf9sYWS5S3BMTDv8d9mKsPdN47dElI64zOaA5z7wvJfJn1M48yLmJQ"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \n    \"isSolved\": {{isSolved}},\n    \"user\": {\n        \"createdBy\": null,\n        \"createdDate\": \"2024-02-15T16:08:28.925608132Z\",\n        \"lastModifiedBy\": null,\n        \"lastModifiedDate\": \"2024-02-15T16:08:28.925608233Z\",\n        \"id\": 1051,\n        \"login\": \"milana\",\n        \"firstName\": null,\n        \"lastName\": null,\n        \"email\": \"milana@gmail.com\",\n        \"activated\": false,\n        \"langKey\": null,\n        \"imageUrl\": null,\n        \"resetDate\": null\n    },\n    \"task\": {\n        \"id\": 55251,\n        \"text\": \"{{text}} \",\n        \"answer\": \"{{answer}}\",\n        \"title\": \"hgkfk\"\n    }\n}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/user-tasks",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user-tasks"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete user task",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "946aa038-3051-4658-820f-4e93ab01ff84",
+										"exec": [
+											"pm.test('Status code is 204', function () {",
+											"    pm.response.to.have.status(204);",
+											"})",
+											"",
+											"pm.test(\"Delete user task\", function () {",
+											"    pm.expect(pm.response.text()).to.eql(\"\");",
+											"});",
+											"",
+											"pm.test('Status code name has string', function () {",
+											"    pm.response.to.have.status('No Content');",
+											"})",
+											"",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "5fc0a0be-0407-4024-9f4d-c10d7afacf85",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0LmUucy4zLjcudC5lLnMudCIsImV4cCI6MTcwODE4ODE0MSwiYXV0aCI6IlJPTEVfQURNSU4gUk9MRV9VU0VSX1NUVURFTlQgUk9MRV9VU0VSX1RFQUNIRVIiLCJpYXQiOjE3MDgxMDE3NDF9.3dGvbO3oNisBBtjep4I2GbbVdzy0-6MEUf9sYWS5S3BMTDv8d9mKsPdN47dElI64zOaA5z7wvJfJn1M48yLmJQ"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/user-tasks/{{task.id}}",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"user-tasks",
+										"{{task.id}}"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"id": "bf38c55e-f594-4652-a19a-2e49c88233de"
+				}
+			],
+			"id": "f321f4f3-487b-4d0d-9a4c-cba11edad1e3"
+		}
+	]
+}

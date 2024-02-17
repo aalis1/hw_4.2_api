@@ -9,7 +9,8 @@ id = 8dbf3de5-c26f-483b-823e-5b8684f05dd4
 
 [config.relations.collections]
 rootDirectory = postman/collections
-files[] = {"id":"28376745-7ae34490-875a-4baf-9cac-297762f6bf37","path":"NOT DELETED  HW-4.2_Api.json","metaData":{}}
+files[] = {"id":"28376745-7ae34490-875a-4baf-9cac-297762f6bf37","path":"Registation_user_HW-4.2_Api.json","metaData":{}}
+files[] = {"id":"28376745-9414afb7-ed94-4d0d-87ef-ef9155bb6776","path":"Task_create_HW_api_4.2.json","metaData":{}}
 
 [config.relations.collections.metaData]
 
