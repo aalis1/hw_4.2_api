@@ -1,0 +1,329 @@
+{
+	"id": "8a97216a-bf1c-43f7-a022-d0494b330cd1",
+	"name": "HW_api_task_create",
+	"timestamp": "2024-02-17T14:38:14.526Z",
+	"collection_id": "28376745-f705533f-2a58-4e70-9986-d019df2db349",
+	"folder_id": "28376745-97e0c3c0-bcb7-4e03-b1b8-2519d8e06a22",
+	"environment_id": "28376745-94e63e1e-c80c-497d-ae92-10e5b62654be",
+	"totalPass": 19,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2024-02-17T14:38:09.146Z",
+	"totalFail": 3,
+	"results": [
+		{
+			"id": "b2b62d89-1af5-4481-8b39-9a2499e2e12c",
+			"name": "Authenticate",
+			"url": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/authenticate",
+			"time": 1029,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Content-Type is present": true,
+				"Status code name has string": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name has string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1029
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Content-Type is present": true,
+					"Status code name has string": true
+				}
+			]
+		},
+		{
+			"id": "6d2d4fd7-205e-4eed-8087-407a3227e173",
+			"name": "Create user-task",
+			"url": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/user-tasks",
+			"time": 506,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 201": true,
+				"Content-Type is present": true,
+				"Successful POST request": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				506
+			],
+			"allTests": [
+				{
+					"Status code is 201": true,
+					"Content-Type is present": true,
+					"Successful POST request": true
+				}
+			]
+		},
+		{
+			"id": "e6dc32f7-96ec-43ad-849e-baf35aca990b",
+			"name": "Сreate user-task already created",
+			"url": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/user-tasks",
+			"time": 793,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 409": false,
+				"Content-Type is present": true,
+				"Unsuccessful POST request": false
+			},
+			"testPassFailCounts": {
+				"Status code is 409": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Unsuccessful POST request": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				793
+			],
+			"allTests": [
+				{
+					"Status code is 409": false,
+					"Content-Type is present": true,
+					"Unsuccessful POST request": false
+				}
+			]
+		},
+		{
+			"id": "fcd8c5a9-6686-43c0-99fa-b49bd3a51457",
+			"name": "Delete user task",
+			"url": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/user-tasks/56906",
+			"time": 519,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {
+				"Status code is 204": true,
+				"Delete user task": true,
+				"Status code name has string": true
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Delete user task": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name has string": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				519
+			],
+			"allTests": [
+				{
+					"Status code is 204": true,
+					"Delete user task": true,
+					"Status code name has string": true
+				}
+			]
+		},
+		{
+			"id": "3a7bc96f-d8ea-42f6-8517-be81f228610b",
+			"name": "Not possible delete task already deleted",
+			"url": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/user-tasks/56906",
+			"time": 648,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {
+				"Response status code is 409": false,
+				"Verify that the task with ID 56906 is deleted": true,
+				"Ensure response does not contain sensitive information": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 409": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Verify that the task with ID 56906 is deleted": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Ensure response does not contain sensitive information": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				648
+			],
+			"allTests": [
+				{
+					"Response status code is 409": false,
+					"Verify that the task with ID 56906 is deleted": true,
+					"Ensure response does not contain sensitive information": true
+				}
+			]
+		},
+		{
+			"id": "a53b611e-7779-447b-9b37-d45afe378303",
+			"name": "Create task",
+			"url": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/tasks",
+			"time": 1012,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 201": true,
+				"Status code name has string": true,
+				"Content-Type is present": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name has string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				1012
+			],
+			"allTests": [
+				{
+					"Status code is 201": true,
+					"Status code name has string": true,
+					"Content-Type is present": true
+				}
+			]
+		},
+		{
+			"id": "95b68175-e6a6-4292-a98d-6b19aa14b786",
+			"name": "Delete task",
+			"url": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/tasks/56959",
+			"time": 453,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {
+				"Response status code is 204": true,
+				"Response body is null": true,
+				"Verify that the user task with ID 55401 is deleted from the system": true,
+				"Validate that the response body is empty": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 204": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response body is null": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Verify that the user task with ID 55401 is deleted from the system": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Validate that the response body is empty": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				453
+			],
+			"allTests": [
+				{
+					"Response status code is 204": true,
+					"Response body is null": true,
+					"Verify that the user task with ID 55401 is deleted from the system": true,
+					"Validate that the response body is empty": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 4960,
+	"collection": {
+		"requests": [
+			{
+				"id": "b2b62d89-1af5-4481-8b39-9a2499e2e12c",
+				"method": "POST"
+			},
+			{
+				"id": "6d2d4fd7-205e-4eed-8087-407a3227e173",
+				"method": "POST"
+			},
+			{
+				"id": "e6dc32f7-96ec-43ad-849e-baf35aca990b",
+				"method": "POST"
+			},
+			{
+				"id": "fcd8c5a9-6686-43c0-99fa-b49bd3a51457",
+				"method": "DELETE"
+			},
+			{
+				"id": "3a7bc96f-d8ea-42f6-8517-be81f228610b",
+				"method": "DELETE"
+			},
+			{
+				"id": "a53b611e-7779-447b-9b37-d45afe378303",
+				"method": "POST"
+			},
+			{
+				"id": "95b68175-e6a6-4292-a98d-6b19aa14b786",
+				"method": "DELETE"
+			}
+		]
+	}
+}
