@@ -1,0 +1,280 @@
+{
+	"id": "eb0f678b-5f5c-4223-84dd-ec42af6e34dd",
+	"name": "HW_api_task_create",
+	"timestamp": "2024-02-17T14:55:23.550Z",
+	"collection_id": "28376745-f705533f-2a58-4e70-9986-d019df2db349",
+	"folder_id": "28376745-ce13d49b-123b-4260-b79e-539761087313",
+	"environment_id": "28376745-94e63e1e-c80c-497d-ae92-10e5b62654be",
+	"totalPass": 8,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2024-02-17T14:55:18.638Z",
+	"totalFail": 10,
+	"results": [
+		{
+			"id": "650ff7d3-e996-4393-ac15-3b91098551c3",
+			"name": "Emojis instead of letters in user-task",
+			"url": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/user-tasks",
+			"time": 969,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Response status code is 400": false,
+				"Successful POST request": true,
+				"Response has the required fields": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 400": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Successful POST request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Response has the required fields": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				969
+			],
+			"allTests": [
+				{
+					"Response status code is 400": false,
+					"Successful POST request": true,
+					"Response has the required fields": true
+				}
+			]
+		},
+		{
+			"id": "14a15a4c-e50d-49ff-8a4a-2bfce88393e2",
+			"name": "Special characters instead of task text",
+			"url": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/tasks",
+			"time": 639,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Response status code is 400": false,
+				"Response has the required fields": true,
+				"Content-Type header is application/json": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 400": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response has the required fields": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				639
+			],
+			"allTests": [
+				{
+					"Response status code is 400": false,
+					"Response has the required fields": true,
+					"Content-Type header is application/json": true
+				}
+			]
+		},
+		{
+			"id": "2eaf2967-0897-40e4-8e15-dd083e94d0f2",
+			"name": "Emojis instead of letters in task",
+			"url": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/api/tasks",
+			"time": 495,
+			"responseCode": {
+				"code": 403,
+				"name": "Forbidden"
+			},
+			"tests": {
+				"Status code is 400": false,
+				"Status code name has string": false,
+				"Content-Type is application/json": false
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Status code name has string": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Content-Type is application/json": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				495
+			],
+			"allTests": [
+				{
+					"Status code is 400": false,
+					"Status code name has string": false,
+					"Content-Type is application/json": false
+				}
+			]
+		},
+		{
+			"id": "999b5895-3ba4-4cec-9247-4d01f6fb1749",
+			"name": "Not possible create user-task without user email",
+			"url": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/user-tasks",
+			"time": 676,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Content-Type header is application/json": true,
+				"Status code is 400": false,
+				"Status code name has string": false
+			},
+			"testPassFailCounts": {
+				"Content-Type header is application/json": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code is 400": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Status code name has string": {
+					"pass": 0,
+					"fail": 1
+				}
+			},
+			"times": [
+				676
+			],
+			"allTests": [
+				{
+					"Content-Type header is application/json": true,
+					"Status code is 400": false,
+					"Status code name has string": false
+				}
+			]
+		},
+		{
+			"id": "0a1263f3-aa44-4310-b814-d6ca06fd8b5d",
+			"name": "Not possible create task with empty fields",
+			"url": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/tasks",
+			"time": 886,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Response status code is 400": false,
+				"Status code name has string": false,
+				"Content type is application/json": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 400": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Status code name has string": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Content type is application/json": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				886
+			],
+			"allTests": [
+				{
+					"Response status code is 400": false,
+					"Status code name has string": false,
+					"Content type is application/json": true
+				}
+			]
+		},
+		{
+			"id": "88b4a176-b202-4977-a267-fd0399771540",
+			"name": "Special symbols instead letters in user-task",
+			"url": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/user-tasks",
+			"time": 802,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Response status code is 400": false,
+				"Response has the required fields": true,
+				"User object contains expected properties": true
+			},
+			"testPassFailCounts": {
+				"Response status code is 400": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Response has the required fields": {
+					"pass": 1,
+					"fail": 0
+				},
+				"User object contains expected properties": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				802
+			],
+			"allTests": [
+				{
+					"Response status code is 400": false,
+					"Response has the required fields": true,
+					"User object contains expected properties": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 4467,
+	"collection": {
+		"requests": [
+			{
+				"id": "650ff7d3-e996-4393-ac15-3b91098551c3",
+				"method": "POST"
+			},
+			{
+				"id": "14a15a4c-e50d-49ff-8a4a-2bfce88393e2",
+				"method": "POST"
+			},
+			{
+				"id": "2eaf2967-0897-40e4-8e15-dd083e94d0f2",
+				"method": "POST"
+			},
+			{
+				"id": "999b5895-3ba4-4cec-9247-4d01f6fb1749",
+				"method": "POST"
+			},
+			{
+				"id": "0a1263f3-aa44-4310-b814-d6ca06fd8b5d",
+				"method": "POST"
+			},
+			{
+				"id": "88b4a176-b202-4977-a267-fd0399771540",
+				"method": "POST"
+			}
+		]
+	}
+}
