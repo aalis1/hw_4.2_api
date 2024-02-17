@@ -1,0 +1,216 @@
+{
+	"id": "4e06e508-7a2a-42c5-b750-08f59ae6a00e",
+	"name": "HW_api_task_create",
+	"timestamp": "2024-02-17T16:22:16.677Z",
+	"collection_id": "28376745-f705533f-2a58-4e70-9986-d019df2db349",
+	"folder_id": "28376745-09f99a30-461c-4f23-95ad-8d703c8c5fb7",
+	"environment_id": "28376745-94e63e1e-c80c-497d-ae92-10e5b62654be",
+	"totalPass": 60,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2024-02-17T16:21:57.414Z",
+	"totalFail": 0,
+	"results": [
+		{
+			"id": "44a1f496-5ee2-4126-980d-eca261adf68b",
+			"name": "Create user-task",
+			"url": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/user-tasks",
+			"time": 435,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 201": true,
+				"Content-Type is present": true,
+				"Successful POST request": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 10,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 10,
+					"fail": 0
+				},
+				"Successful POST request": {
+					"pass": 10,
+					"fail": 0
+				}
+			},
+			"times": [
+				605,
+				1293,
+				773,
+				804,
+				746,
+				523,
+				670,
+				514,
+				531,
+				435
+			],
+			"allTests": [
+				{
+					"Status code is 201": true,
+					"Content-Type is present": true,
+					"Successful POST request": true
+				},
+				{
+					"Status code is 201": true,
+					"Content-Type is present": true,
+					"Successful POST request": true
+				},
+				{
+					"Status code is 201": true,
+					"Content-Type is present": true,
+					"Successful POST request": true
+				},
+				{
+					"Status code is 201": true,
+					"Content-Type is present": true,
+					"Successful POST request": true
+				},
+				{
+					"Status code is 201": true,
+					"Content-Type is present": true,
+					"Successful POST request": true
+				},
+				{
+					"Status code is 201": true,
+					"Content-Type is present": true,
+					"Successful POST request": true
+				},
+				{
+					"Status code is 201": true,
+					"Content-Type is present": true,
+					"Successful POST request": true
+				},
+				{
+					"Status code is 201": true,
+					"Content-Type is present": true,
+					"Successful POST request": true
+				},
+				{
+					"Status code is 201": true,
+					"Content-Type is present": true,
+					"Successful POST request": true
+				},
+				{
+					"Status code is 201": true,
+					"Content-Type is present": true,
+					"Successful POST request": true
+				}
+			]
+		},
+		{
+			"id": "98fc3049-9e3b-467f-8ef4-eaea27f329f1",
+			"name": "Delete user task",
+			"url": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/user-tasks/55251",
+			"time": 483,
+			"responseCode": {
+				"code": 204,
+				"name": "No Content"
+			},
+			"tests": {
+				"Status code is 204": true,
+				"Delete user task": true,
+				"Status code name has string": true
+			},
+			"testPassFailCounts": {
+				"Status code is 204": {
+					"pass": 10,
+					"fail": 0
+				},
+				"Delete user task": {
+					"pass": 10,
+					"fail": 0
+				},
+				"Status code name has string": {
+					"pass": 10,
+					"fail": 0
+				}
+			},
+			"times": [
+				827,
+				953,
+				547,
+				696,
+				5480,
+				616,
+				644,
+				689,
+				609,
+				483
+			],
+			"allTests": [
+				{
+					"Status code is 204": true,
+					"Delete user task": true,
+					"Status code name has string": true
+				},
+				{
+					"Status code is 204": true,
+					"Delete user task": true,
+					"Status code name has string": true
+				},
+				{
+					"Status code is 204": true,
+					"Delete user task": true,
+					"Status code name has string": true
+				},
+				{
+					"Status code is 204": true,
+					"Delete user task": true,
+					"Status code name has string": true
+				},
+				{
+					"Status code is 204": true,
+					"Delete user task": true,
+					"Status code name has string": true
+				},
+				{
+					"Status code is 204": true,
+					"Delete user task": true,
+					"Status code name has string": true
+				},
+				{
+					"Status code is 204": true,
+					"Delete user task": true,
+					"Status code name has string": true
+				},
+				{
+					"Status code is 204": true,
+					"Delete user task": true,
+					"Status code name has string": true
+				},
+				{
+					"Status code is 204": true,
+					"Delete user task": true,
+					"Status code name has string": true
+				},
+				{
+					"Status code is 204": true,
+					"Delete user task": true,
+					"Status code name has string": true
+				}
+			]
+		}
+	],
+	"count": 10,
+	"totalTime": 18438,
+	"collection": {
+		"requests": [
+			{
+				"id": "44a1f496-5ee2-4126-980d-eca261adf68b",
+				"method": "POST"
+			},
+			{
+				"id": "98fc3049-9e3b-467f-8ef4-eaea27f329f1",
+				"method": "DELETE"
+			}
+		]
+	}
+}
