@@ -20,6 +20,8 @@
 									"script": {
 										"id": "cd1abd53-844e-4b75-aaf9-d715bd3486bd",
 										"exec": [
+											"pm.environment.set(\"id_token\", pm.response.json().id_token);",
+											"",
 											"pm.test(\"Status code is 200\", function () {",
 											"        pm.response.to.have.status(200);",
 											"});",
@@ -389,15 +391,11 @@
 									"raw": "{\n  \"login\": \"{{$randomUserName}}\",\n  \"firstName\": \"{{$randomFirstName}}\",\n  \"lastName\": \"{{$randomLastName}}\",\n  \"email\": \"{{$randomEmail}}\",\n  \"imageUrl\": \"string\",\n  \"activated\": true,\n  \"langKey\": \"string\",\n  \"createdBy\": \"string\",\n  \"createdDate\": \"2024-02-16T16:49:39.882Z\",\n  \"lastModifiedBy\": \"string\",\n  \"lastModifiedDate\": \"2024-02-16T16:49:39.882Z\",\n  \"authorities\": [\n    \"{{$randomAdjective}}\"\n  ]\n}\n"
 								},
 								"url": {
-									"raw": "https://sqlverifier-live-6e21ca0ed768.herokuapp.com/api/admin/users",
-									"protocol": "https",
+									"raw": "{{UserId}}/admin/users",
 									"host": [
-										"sqlverifier-live-6e21ca0ed768",
-										"herokuapp",
-										"com"
+										"{{UserId}}"
 									],
 									"path": [
-										"api",
 										"admin",
 										"users"
 									]
