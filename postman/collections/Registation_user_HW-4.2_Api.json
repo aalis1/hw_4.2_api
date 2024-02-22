@@ -13,6 +13,79 @@
 					"name": "Positiv",
 					"item": [
 						{
+							"name": "authenticate",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "cd1abd53-844e-4b75-aaf9-d715bd3486bd",
+										"exec": [
+											"pm.environment.set(\"id_token\", pm.response.json().id_token);",
+											"",
+											"pm.test(\"Status code is 200\", function () {",
+											"        pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Content-Type is present\", function () {",
+											"        pm.response.to.have.header(\"Content-Type\");",
+											"});",
+											"pm.test(\"Status code name has string\", function () {",
+											"        pm.response.to.have.status(\"OK\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"id": "a31a0b12-522f-4ba0-b016-9d82d3b3dae8",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true,
+								"disabledSystemHeaders": {
+									"content-type": true
+								}
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{id_token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [
+									{
+										"key": "accept",
+										"value": "*/*"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Bearer {{id_token}}"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\"username\":\"t.e.s.3.7.t.e.s.t\",\"password\":\"t.e.s.3.7.t.e.s.t@\",\"rememberMe\": true}"
+								},
+								"url": {
+									"raw": "{{baseUrl}}/authenticate",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"authenticate"
+									]
+								}
+							},
+							"response": []
+						},
+						{
 							"name": "Registered user",
 							"event": [
 								{
@@ -402,79 +475,6 @@
 				}
 			],
 			"id": "64f6cd13-f550-4c69-84f2-bfc7658f5ccf"
-		},
-		{
-			"name": "authenticate",
-			"event": [
-				{
-					"listen": "test",
-					"script": {
-						"id": "cd1abd53-844e-4b75-aaf9-d715bd3486bd",
-						"exec": [
-							"pm.environment.set(\"id_token\", pm.response.json().id_token);",
-							"",
-							"pm.test(\"Status code is 200\", function () {",
-							"        pm.response.to.have.status(200);",
-							"});",
-							"pm.test(\"Content-Type is present\", function () {",
-							"        pm.response.to.have.header(\"Content-Type\");",
-							"});",
-							"pm.test(\"Status code name has string\", function () {",
-							"        pm.response.to.have.status(\"OK\");",
-							"});"
-						],
-						"type": "text/javascript"
-					}
-				}
-			],
-			"id": "a31a0b12-522f-4ba0-b016-9d82d3b3dae8",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true,
-				"disabledSystemHeaders": {
-					"content-type": true
-				}
-			},
-			"request": {
-				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "{{id_token}}",
-							"type": "string"
-						}
-					]
-				},
-				"method": "POST",
-				"header": [
-					{
-						"key": "accept",
-						"value": "*/*"
-					},
-					{
-						"key": "Content-Type",
-						"value": "application/json"
-					},
-					{
-						"key": "Authorization",
-						"value": "Bearer {{id_token}}"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\"username\":\"t.e.s.3.7.t.e.s.t\",\"password\":\"t.e.s.3.7.t.e.s.t@\",\"rememberMe\": true}"
-				},
-				"url": {
-					"raw": "{{baseUrl}}/authenticate",
-					"host": [
-						"{{baseUrl}}"
-					],
-					"path": [
-						"authenticate"
-					]
-				}
-			},
-			"response": []
 		}
 	]
 }
