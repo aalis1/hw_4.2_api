@@ -34,6 +34,6 @@ jobs:
         run: |
            curl -o- "https://dl-cli.pstmn.io/install/linux64.sh" | sh
            postman login --with-api-key PMAK-65d8acf5aefa4d00010cc77b-f057ef7ad2363ed38e25471a0e08f7c002
-           postman collection run "28376745-679f1304-1c4c-4db3-aa55-0472a749edc4" -e "28376745-94e63e1e-c80c-497d-ae92-10e5b62654be"
-           postman collection run "28376745-f705533f-2a58-4e70-9986-d019df2db349" -e "28376745-94e63e1e-c80c-497d-ae92-10e5b62654be"
+           postman collection run "postman/collections/Registation_user_HW-4.2_Api.json" -e "HW_4.2_api_Env.postman_environment.json"
+           postman collection run "postman/collections/Task_create_HW_api_4.2.json" -e "HW_4.2_api_Env.postman_environment.json"
                                 
